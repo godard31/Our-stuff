@@ -36,7 +36,7 @@ import pandas as pd
 
 df = pd.DataFrame({
     "Team": ["Ravens", "Cowboys", "Chiefs"],
-    "Win_Probability": [0.68, 0.55, 0.72]
+    "Win_Probability": [0.69, 0.55, 0.72]
 })
 
 st.dataframe(df)
@@ -50,5 +50,6 @@ df = pd.DataFrame({
 
 st.line_chart(df.set_index("Week"))  # Line graph
 st.bar_chart(df.set_index("Week"))   # Bar chart
+
 
 
