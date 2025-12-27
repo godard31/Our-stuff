@@ -36,7 +36,7 @@ import pandas as pd
 
 df = pd.DataFrame({
     "Team": ["Ravens", "Cowboys", "Chiefs"],
-    "Win_Probability": [0.69, 0.55, 0.72]
+    "Win_Probability": [0.68, 0.55, 0.72]
 })
 
 st.dataframe(df)
@@ -51,5 +51,18 @@ df = pd.DataFrame({
 st.line_chart(df.set_index("Week"))  # Line graph
 st.bar_chart(df.set_index("Week"))   # Bar chart
 
+import streamlit as st
+import pandas as pd
+import numpy as np
+
+st.title("Model ROI over time")
+
+n_weeks = st.slider("Number of weeks", 4, 52, 12)
+
+weeks = np.arange(1, n_weeks + 1)
+roi = np.random.normal(0.05, 0.02, size=n_weeks).cumsum()
+
+df = pd.DataFrame({"Week": weeks, "ROI": roi})
+st.line_chart(df.set_index("Week"))
 
 
